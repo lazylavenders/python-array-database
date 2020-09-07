@@ -13,17 +13,18 @@ class Table:
     self.data = {}
     
     for i in columns:
-      seld.data[str(i)]=[]
+      self.data[str(i)]=[]
     self.no_cols, self.no_rows = len(columns), 0
   
   
   def row_add(self, *columns) -> None:
     """Adds a row to the table."""
     
-    if len(*columns) != self.no_cols:
+    if len(columns) != self.no_cols:
       raise TableError(f"Wrong number of columns given, required : {self.cols} given : {columns}")
     for x,y in zip(self.columns, columns):
       self.data[x].append(y)
+    self.no_rows += 1
       
       
   def row_get(self, index) -> list:
