@@ -35,6 +35,13 @@ class Table:
     for i in self.columns:
       data.append(self.data[i][index-1])
     return data
+  
+  def row_remove(self, index):
+    """Removes a row from the table of the given index beginning from one.
+    Returns self."""
+    for i in self.columns:
+      self.data[i].remove(index-1)
+    return self
 
   
 if __name__=='__main__':
